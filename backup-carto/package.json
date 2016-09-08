@@ -1,0 +1,14 @@
+{
+  "name": "backup-carto",
+  "version": "0.0.0",
+  "description": "Backs up CARTO tables in CSV format",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nate Irwin",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.74.0"
+  }
+}

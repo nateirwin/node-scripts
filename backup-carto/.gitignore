@@ -1,0 +1,4 @@
+.DS_Store
+_backups/
+node_modules/
+configs.json
