@@ -1,0 +1,22 @@
+{
+  "name": "download-npnh-photos",
+  "version": "0.0.0",
+  "description": "Downloads NPNH's Park Mobile photos and creates a CSV with each photo's id.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harpersferrycenter/node-tasks.git"
+  },
+  "author": "Nate Irwin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harpersferrycenter/node-tasks/issues"
+  },
+  "homepage": "https://github.com/harpersferrycenter/node-tasks#readme",
+  "dependencies": {
+    "request": "^2.74.0"
+  }
+}
