@@ -2,6 +2,7 @@ var configs = require('./configs.json');
 var directory = './_backups';
 var done = 0;
 var fs = require('fs');
+var log = '';
 var queries = [];
 var request = require('request');
 var timestamp = new Date().getTime();
@@ -41,13 +42,16 @@ queries.forEach(function (query) {
 
         if (error) {
           console.log('Error writing (CSV): ' + query.userName + '/' + query.table);
+          log += 'Error writing (CSV): ' + query.userName + '/' + query.table + '\n';
         } else {
           console.log('Success: ' + done + ' of ' + count);
+          log += 'Success: ' + done + ' of ' + count + '\n';
         }
       });
     } else {
       done++;
       console.log('Error ' + response.statusCode + ' downloading: https://' + query.userName + '.carto.com/api/v2/sql?api_key=' + query.apiKey + '&format=csv&q=SELECT * FROM ' + query.table);
+      log += 'Error ' + response.statusCode + ' downloading: https://' + query.userName + '.carto.com/api/v2/sql?api_key=' + query.apiKey + '&format=csv&q=SELECT * FROM ' + query.table + '\n';
     }
   });
   request('https://' + query.userName + '.carto.com/api/v2/sql?api_key=' + query.apiKey + '&format=geojson&q=SELECT * FROM ' + query.table, function (error, response, body) {
@@ -57,13 +61,16 @@ queries.forEach(function (query) {
 
         if (error) {
           console.log('Error writing (GeoJSON): ' + query.userName + '/' + query.table);
+          log += 'Error writing (GeoJSON): ' + query.userName + '/' + query.table + '\n';
         } else {
           console.log('Success: ' + done + ' of ' + count);
+          log += 'Success: ' + done + ' of ' + count + '\n';
         }
       });
     } else {
       done++;
       console.log('Error ' + response.statusCode + ' downloading (GeoJSON): https://' + query.userName + '.carto.com/api/v2/sql?api_key=' + query.apiKey + '&format=geojson&q=SELECT * FROM ' + query.table);
+      log += 'Error ' + response.statusCode + ' downloading (GeoJSON): https://' + query.userName + '.carto.com/api/v2/sql?api_key=' + query.apiKey + '&format=geojson&q=SELECT * FROM ' + query.table + '\n';
     }
   });
 });
@@ -71,6 +78,7 @@ queries.forEach(function (query) {
 interval = setInterval(function () {
   if (count === done) {
     clearInterval(interval);
+    fs.writeFile(directory + '/log_' + timestamp + '.txt', log);
     console.log('Done!');
   }
 }, 500);
