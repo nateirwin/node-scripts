@@ -10,9 +10,9 @@ function finish () {
   console.log('Finished!');
 }
 function getPage (pageNumber) {
-  var url = 'http://api.outerspatial.com/v0/applications/' + tripId + '/trips?expand=true&page=' + pageNumber + '&per_page=' + numberOfRecords;
+  var url = 'https://api.outerspatial.com/v0/applications/' + tripId + '/trips?expand=true&page=' + pageNumber + '&per_page=' + numberOfRecords;
 
-  request('http://api.outerspatial.com/v0/applications/' + tripId + '/trips?expand=true&page=' + pageNumber + '&per_page=' + numberOfRecords, function (error, response, body) {
+  request('https://api.outerspatial.com/v0/applications/' + tripId + '/trips?expand=true&page=' + pageNumber + '&per_page=' + numberOfRecords, function (error, response, body) {
     if (error || response.statusCode !== 200) {
       console.log('Error loading from OuterSpatial: ' + url);
       console.log('Canceling!');
