@@ -174,13 +174,13 @@ function c () {
   });
 }
 // ???
-function d (dataCommunities) {
-  e(dataCommunities);
+function d (communities) {
+  e(communities);
 }
 // Write individual community files
-function e (dataCommunities) {
+function e (communities) {
   // TODO: Currently the community information is duplicated. Do we really need it in two places?
-  dataCommunities.forEach(function (community) {
+  communities.forEach(function (community) {
     var baseUrl = './_output/communities/' + community.id;
     var encodeStream = msgpack.createEncodeStream();
 
