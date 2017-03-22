@@ -1,0 +1,20 @@
+{
+  "name": "build-outerspatial-mobile-v2-json",
+  "version": "0.0.0",
+  "description": "Pulls in data from the OuterSpatial API and builds JSON files to support OuterSpatial Mobile v2.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nateirwin/node-scripts/"
+  },
+  "author": "Nate Irwin",
+  "license": "ISC",
+  "dependencies": {
+    "msgpack-lite": "^0.1.26",
+    "request": "^2.81.0",
+    "rimraf": "^2.6.1"
+  }
+}
